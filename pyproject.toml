@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lead_scoring"
+version = "0.0.1"
+description = "This is a project to predict conversion rates for website visitors"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    { name = "Nikita", email = "lilwaz187@gmail.com"}
+]
+
+
+keywords = ["lead_scoring", "machine-learning"]
+
+
+[tool.mypy]
+plugins = [
+    "pydantic.mypy",
+    "pydantic.v1.mypy",
+]
+
+
+dependencies = [
+    "ensure",
+    "flask",
+    "Flask-Cors",
+    "ipykernel",
+    "joblib>=1.2.0",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "pymongo",
+    "pyYAML",
+    "scikit-learn",
+    "seaborn",
+    "streamlit",
+    "types-PyYAML",
+    "xgboost",
+    "python-box",
+    "ydata-profiling",
+    "pydantic>=2.0",
+    "pydantic-settings",
+    "dvc",
+    "wandb"
+]
+
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "pytest",
+]
+
+[project.scripts]
+lead_scoring = "lead_scoring.main:main"
