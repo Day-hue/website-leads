@@ -1,0 +1,28 @@
+
+artifacts_root: artifacts
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_validation/validated_data.parquet
+  random_state: 42
+  target_col: 'converted'
+  numerical_cols:
+    - 'do_not_email'
+    - 'total_visits'
+    - 'time_on_website'
+    - 'page_views_per_visit'
+    - 'free_interview_copy'
+
+  categorical_cols:
+    - 'lead_origin'
+    - 'lead_source'
+    - 'last_activity'
+    - 'specialization'
+    - 'hear_about_x'
+    - 'current_job'
+    - 'course_selection_factor'
+    - 'tags'
+    - 'city'
+    - 'activity_index'
+    - 'profile_index'
+    - 'last_notable_activity'   

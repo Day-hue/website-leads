@@ -1,0 +1,14 @@
+rtifacts_root: artifacts 
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  val_feature_path: artifacts/data_transformation/X_val_transformed.joblib
+  val_targets_path: artifacts/data_transformation/y_val.parquet
+  model_path: artifacts/model_trainer/leads_score.joblib
+  eval_scores_path: artifacts/model_evaluation/eval_scores.json
+  classification_report_path: artifacts/model_evaluation/classification_report.txt
+  confusion_matrix_path: artifacts/model_evaluation/confusion_matrix.png
+  roc_curve_path: artifacts/model_evaluation/roc_curve.png
+  pr_curve_path: artifacts/model_evaluation/pr_curve.png
+  threshold_adjustment: artifacts/model_evaluation/threshold_adjustment.png
+  precision_recall_path: artifacts/model_evaluation/precision_recall.png

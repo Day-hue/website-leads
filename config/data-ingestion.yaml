@@ -5,6 +5,6 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion 
-  database_name: leads
-  collection_name: web_leads
+  database_name: website_leads
+  collection_name: lead_score
   batch_size: 2000

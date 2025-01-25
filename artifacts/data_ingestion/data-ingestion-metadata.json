@@ -1,0 +1,9 @@
+{
+    "start_time": "2025-01-25T09:35:44.058364",
+    "end_time": "2025-01-25T09:36:45.217905",
+    "duration": 61.15954065322876,
+    "total_records": 1943,
+    "data_source": "lead_score",
+    "output_path": "artifacts\\data_ingestion\\website_visitors.csv",
+    "ingested_by": "Nikita"
+}

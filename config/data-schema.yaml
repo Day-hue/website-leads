@@ -1,0 +1,211 @@
+columns:
+  - name: 'lead_origin'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'API'
+          - 'Landing Page Submission'
+          - 'Lead Add Form'
+          - 'Lead Import'
+          - 'Quick Add Form'
+
+  - name: 'lead_source'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'Google'
+          - 'Direct Traffic'
+          - 'Olark Chat'
+          - 'Organic Search'
+          - 'Reference'
+          - 'Welingak Website'
+          - 'Referral Sites'
+          - 'Social Media'
+          - 'Others'
+
+  - name: 'last_activity'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'Email Opened'
+          - 'SMS Sent'
+          - 'Olark Chat Conversation'
+          - 'Page Visited on Website'
+          - 'Converted to Lead'
+          - 'Email Bounced'
+          - 'Email Link Clicked'
+          - 'others'
+          - 'Form Submitted on Website'
+
+  - name: 'specialization'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'Management'
+          - 'Others '                          
+          - 'Business Administration'               
+          - 'Banking, Investment And Insurance'    
+          - 'Media and Advertising'                 
+          - 'Travel and Tourism'                    
+          - 'International Business'                
+          - 'E-Business'                            
+          - 'Rural and Agribusiness'                 
+          - 'Services Excellence'       
+
+  - name: 'hear_about_x'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'Other'                    
+          - 'Online Search'            
+          - 'Word Of Mouth'            
+          - 'Student of SomeSchool'   
+          - 'Multiple Sources'       
+          - 'SMS'                      
+          - 'Advertisements'     
+          - 'Social Media'     
+          - 'Email'
+
+  - name: 'current_job'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'Unemployed'              
+          - 'Working Professional'     
+          - 'Student'                  
+          - 'Other'                    
+          - 'Businessman'               
+          - 'Housewife'
+
+  - name: 'course_selection_factor'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:               
+          - 'Better Career Prospects'  
+          - 'Flexibility & Convenience' 
+          - 'Other'                    
+
+  - name: 'tags'
+    type: 'string'
+    constraints:
+      - type: 'pattern'
+        values:
+          - 'Others'                                               
+          - 'Will revert after reading the email'                 
+          - 'Try Calling again'                                    
+          - 'Interested in other courses'                           
+          - 'Already a student'                                     
+          - 'Closed by Horizzon'                                    
+          - 'Not Interested/Not Eligible'                           
+          - 'Lost'                                                  
+          - 'No phone number'                                       
+          - 'Interested  in full time MBA'                          
+          - 'Graduation in progress'                               
+          - 'Considering next admission'                             
+          - 'in touch with EINS '                                    
+          - 'Want to take admission but has financial problems'      
+          - 'In confusion whether part time or DLP'                  
+          - 'Lateral student'                                        
+          - 'Univerity Recongnition issues'
+
+  - name: 'city'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'Mumbai'                         
+          - 'Other Cities'                  
+          - 'Other Cities of Maharashtra'    
+          - 'Thane & Outskirts'               
+          - 'Other Metro Cities'              
+          - 'Tier II Cities'
+
+  - name: 'activity_index'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'High'    
+          - 'Medium'  
+          - 'Low'
+  - name: 'profile_index'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'High'    
+          - 'Medium'  
+          - 'Low'
+
+  - name: 'last_notable_activity'
+    type: 'string'
+    constraints:
+      - type: 'enum'
+        values:
+          - 'Modified'
+          - 'Email Opened'
+          - 'SMS Sent'
+          - 'Page Visited on Website'
+          - 'Olark Chat Conversation'
+          - 'Email Link Clicked'
+          - 'Email Bounced'
+          - 'Unsubscribed'
+          - 'Unreachable'
+          - 'Had a Phone Conversation'
+          - 'Email Marked Spam'
+          - 'Approached upfront'
+          - 'Resubscribed to emails'
+          - 'View in browser link Clicked'
+          - 'Form Submitted on Website'
+          - 'Email Received'
+
+  - name: 'do_not_email'
+    type: 'integer'
+    constraints:
+      - type: 'range'
+        min: 0
+        max: 1
+
+  - name: 'total_visits'
+    type: 'float'
+    constraints:
+      - type: 'range'
+        min: 0
+        max: 300
+
+  - name: 'time_on_website'
+    type: 'float'
+    constraints:
+      - type: 'range'
+        min: 0
+        max: 3000
+
+  - name: 'page_views_per_visit'
+    type: 'float'
+    constraints:
+      - type: 'range'
+        min: 0
+        max: 50
+
+  - name: 'free_interview_copy'
+    type: 'integer'
+    constraints:
+      - type: 'range'
+        min: 0
+        max: 1
+
+target_column:
+  - name: 'converted'
+    type: 'integer'
+    constraints:
+      - type: 'range'
+        min: 0
+        max: 1
+    
