@@ -1,0 +1,26 @@
+{
+    "validate_columns": {
+        "status": true,
+        "errors": null
+    },
+    "validate_data_types": {
+        "status": true,
+        "errors": null
+    },
+    "validate_missing_values": {
+        "status": true,
+        "errors": null
+    },
+    "validate_string_values": {
+        "status": true,
+        "errors": null
+    },
+    "validate_numeric_values": {
+        "status": true,
+        "errors": null
+    },
+    "validate_numeric_ranges": {
+        "status": true,
+        "errors": null
+    }
+}
