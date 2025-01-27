@@ -1,0 +1,31 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.12.8",
+  "startedAt": "2025-01-27T09:56:21.031138Z",
+  "program": "c:\\Users\\lilwa\\OneDrive\\Desktop\\moringa\\Edel\\website-leads\\experiment\\trial_04_model_trainer.py",
+  "codePath": "experiment\\trial_04_model_trainer.py",
+  "git": {
+    "remote": "https://github.com/Day-hue/website-leads.git",
+    "commit": "4933ece9c24f094ed0d42367df26496cd747ad2e"
+  },
+  "email": "sambanikitaedel@gmail.com",
+  "root": "C:\\Users\\lilwa\\OneDrive\\Desktop\\moringa\\Edel\\website-leads",
+  "host": "OUTCAST",
+  "executable": "C:\\Users\\lilwa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "codePathLocal": "experiment\\trial_04_model_trainer.py",
+  "cpu_count": 4,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "473488912384",
+      "used": "202100428800"
+    }
+  },
+  "memory": {
+    "total": "8429764608"
+  },
+  "cpu": {
+    "count": 4,
+    "countLogical": 8
+  }
+}

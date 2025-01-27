@@ -1,0 +1,11 @@
+
+artifacts_root: artifacts 
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  train_features_path: artifacts/data_transformation/X_train_transformed.joblib
+  train_targets_path: artifacts/data_transformation/y_train.csv
+  model_name: leads_score.joblib
+  project_name: leads-scoring
+  val_features_path: artifacts/data_transformation/X_val_transformed.joblib
+  val_targets_path: artifacts/data_transformation/y_val.csv

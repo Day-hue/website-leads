@@ -1,0 +1,3 @@
+prediction_pipeline:
+  model_path: artifacts/model_trainer/leads_score.joblib
+  data_preprocessor: artifacts/data_transformation/preprocessor.joblib
