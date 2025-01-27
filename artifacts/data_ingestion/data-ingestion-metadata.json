@@ -1,7 +1,7 @@
 {
-    "start_time": "2025-01-26T17:33:14.617632",
-    "end_time": "2025-01-26T17:40:08.069303",
-    "duration": 413.45167112350464,
+    "start_time": "2025-01-27T15:00:01.258046",
+    "end_time": "2025-01-27T15:01:00.733111",
+    "duration": 59.47506546974182,
     "total_records": 9240,
     "data_source": "scores",
     "output_path": "artifacts\\data_ingestion\\website_visitors.csv",

@@ -2,6 +2,7 @@
 import pymongo
 import os
 import sys
+sys.path.append(r"C:\Users\lilwa\OneDrive\Desktop\moringa\Edel\website-leads")
 
 from typing import Dict
 
