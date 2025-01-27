@@ -3,7 +3,7 @@ artifacts_root: artifacts
 
 data_transformation:
   root_dir: artifacts/data_transformation
-  data_path: artifacts/data_validation/validated_data.parquet
+  data_path: artifacts/data_validation/validated_data.csv
   random_state: 42
   target_col: 'converted'
   numerical_cols:
