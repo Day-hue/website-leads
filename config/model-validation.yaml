@@ -1,0 +1,15 @@
+artifacts_root: artifacts
+
+model_validation:
+  root_dir: artifacts/model_validation
+  test_feature_path: artifacts/data_transformation/X_test_transformed.joblib
+  test_targets_path: artifacts/data_transformation/y_test.csv
+  model_path: artifacts/model_trainer/leads_score.joblib
+  validation_scores_path: artifacts/model_validation/model_val_scores.json
+  classification_report_path: artifacts/model_validation/classification_report.txt
+  confusion_matrix_path: artifacts/model_validation/confusion_matrix.png
+  roc_curve_path: artifacts/model_validation/roc_curve.png
+  pr_curve_path: artifacts/model_validation/pr_curve.png
+  precision_recall_path: artifacts/model_validation/precision_recall.png
+  optimal_threshold: 0.3
+  project_name: leads-scoring

@@ -1,0 +1,29 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.12.8",
+  "startedAt": "2025-01-27T11:26:38.020468Z",
+  "program": "c:\\Users\\lilwa\\OneDrive\\Desktop\\moringa\\Edel\\website-leads\\experiment\\trial_06_model_validation.py",
+  "codePath": "experiment\\trial_06_model_validation.py",
+  "git": {
+    "remote": "https://github.com/Day-hue/website-leads.git",
+    "commit": "98f2f0f8f464605ed489e84e3a223c7d9e2aa0ab"
+  },
+  "email": "sambanikitaedel@gmail.com",
+  "root": "C:\\Users\\lilwa\\OneDrive\\Desktop\\moringa\\Edel\\website-leads",
+  "host": "OUTCAST",
+  "executable": "C:\\Users\\lilwa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "codePathLocal": "experiment\\trial_06_model_validation.py",
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "473488912384",
+      "used": "204027678720"
+    }
+  },
+  "memory": {
+    "total": "8429764608"
+  },
+  "cpu": {
+    "countLogical": 8
+  }
+}
