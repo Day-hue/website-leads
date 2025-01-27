@@ -1,9 +1,9 @@
-rtifacts_root: artifacts 
+artifacts_root: artifacts 
 
 model_evaluation:
   root_dir: artifacts/model_evaluation
   val_feature_path: artifacts/data_transformation/X_val_transformed.joblib
-  val_targets_path: artifacts/data_transformation/y_val.parquet
+  val_targets_path: artifacts/data_transformation/y_val.csv
   model_path: artifacts/model_trainer/leads_score.joblib
   eval_scores_path: artifacts/model_evaluation/eval_scores.json
   classification_report_path: artifacts/model_evaluation/classification_report.txt

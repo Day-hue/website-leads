@@ -19,6 +19,10 @@ from src.lead_scoring.exception import CustomException
 from src.lead_scoring.logger import logger
 from src.lead_scoring.constants import *
 from src.lead_scoring.utils.commons import *
+# Weights and Bias
+import wandb
+# Add requirements for wandb core 
+wandb.require("core")
 
 
 @dataclass
@@ -28,7 +32,11 @@ class ModelEvaluationConfig:
     val_targets_path: Path
     model_path: Path
     eval_scores_path: Path
-    threshold_adjustment: Path
+    classification_report_path: Path
+    confusion_matrix_path: Path
+    roc_curve_path: Path
+    pr_curve_path: Path
+    threshold_adjustment: float 
     precision_recall_path: Path
 
 
@@ -50,8 +58,13 @@ class ConfigurationManager:
             val_targets_path = Path(eval_config.val_targets_path),
             model_path = Path(eval_config.model_path),
             eval_scores_path = Path(eval_config.eval_scores_path),
-            threshold_adjustment = Path(eval_config.threshold_adjustment),
-            precision_recall_path = Path(eval_config.precision_recall_path),
+            classification_report_path = Path(eval_config.classification_report_path),
+            confusion_matrix_path = Path(eval_config.confusion_matrix_path),
+            roc_curve_path = Path(eval_config.roc_curve_path),
+            pr_curve_path= Path(eval_config.pr_curve_path),
+            threshold_adjustment = eval_config.threshold_adjustment,
+            precision_recall_path = Path(eval_config.precision_recall_path)
+
         )
     
 class ModelEvaluation:
@@ -169,6 +182,70 @@ class ModelEvaluation:
         except Exception as e:
             logger.error(f"Error evaluating model: {str(e)}")
 
+    def model_classification_report(self, y_true, y_pred):
+        """Generates the classification report and saves it as a TXT file."""
+        try:
+            report = classification_report(y_true, y_pred, target_names=["0", "1"])
+            with open(self.config.classification_report_path, "w") as file:
+                file.write(report)
+            logger.info(f"Classification report saved to {self.config.classification_report_path}")
+        except Exception as e:
+            raise CustomException(f"Error generating classification report: {e}")
+
+    def plot_confusion_matrix(self, y_true, y_pred):
+        """Plots and saves the confusion matrix."""
+        try:
+            cm = confusion_matrix(y_true, y_pred)
+            cm_df = pd.DataFrame(cm, index=["Actual 0", "Actual 1"], columns=["Predicted 0", "Predicted 1"])
+
+            plt.figure(figsize=(5, 4))
+            sns.heatmap(cm_df, annot=True, fmt="d", cmap="Blues")
+            plt.title("Confusion Matrix")
+            plt.xlabel("Predicted Label")
+            plt.ylabel("True Label")
+            plt.tight_layout()
+            plt.savefig(self.config.confusion_matrix_path)
+            plt.close()
+            logger.info(f"Confusion matrix plot saved to {self.config.confusion_matrix_path}")
+        except Exception as e:
+            raise CustomException(f"Error plotting confusion matrix: {e}")
+
+    def plot_roc_curve(self, y_true, y_pred_proba):
+        """Plots and saves the ROC curve."""
+        try:
+            fpr, tpr, _ = roc_curve(y_true, y_pred_proba)
+            plt.figure(figsize=(5, 4))
+            plt.plot(fpr, tpr, label=f"ROC AUC: {roc_auc_score(y_true, y_pred_proba):.2f}")
+            plt.plot([0, 1], [0, 1], "k--")
+            plt.title("ROC Curve")
+            plt.xlabel("False Positive Rate")
+            plt.ylabel("True Positive Rate")
+            plt.legend(loc="lower right")
+            plt.tight_layout()
+            plt.savefig(self.config.roc_curve_path)
+            plt.close()
+            logger.info(f"ROC curve plot saved to {self.config.roc_curve_path}")
+        except Exception as e:
+            raise CustomException(f"Error plotting ROC curve: {e}")
+
+    def plot_precision_recall_curve(self, y_true, y_pred_proba):
+        """Plots and saves the precision-recall curve."""
+        try:
+            precision, recall, _ = precision_recall_curve(y_true, y_pred_proba)
+            plt.figure(figsize=(5, 4))
+            plt.plot(recall, precision, label=f"PR AUC: {auc(recall, precision):.2f}")
+            plt.title("Precision-Recall Curve")
+            plt.xlabel("Recall")
+            plt.ylabel("Precision")
+            plt.legend(loc="lower left")
+            plt.tight_layout()
+            plt.savefig(self.config.pr_curve_path)
+            plt.close()
+            logger.info(f"Precision-Recall curve plot saved to {self.config.pr_curve_path}")
+        except Exception as e:
+            raise CustomException(f"Error plotting precision-recall curve: {e}")
+        
+
     def run_evaluation(self):
         """Runs the entire evaluation process."""
         try:
@@ -176,9 +253,11 @@ class ModelEvaluation:
                 self.config.val_feature_path, self.config.val_targets_path
             )
             model = self.load_model(self.config.model_path)
-            
             y_pred, y_pred_proba, scores = self.evaluate_model(model, X_val_transformed, y_val)
-
+            self.model_classification_report(y_true=y_val, y_pred=y_pred)
+            self.plot_confusion_matrix(y_true=y_val, y_pred=y_pred)
+            self.plot_roc_curve(y_true=y_val, y_pred_proba=y_pred_proba)
+            self.plot_precision_recall_curve(y_true=y_val, y_pred_proba=y_pred_proba)
             logger.info("Evaluation process completed successfully")
         except Exception as e:
             logger.error(f"Error in evaluation process: {str(e)}")
